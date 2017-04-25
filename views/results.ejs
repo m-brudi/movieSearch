@@ -1,0 +1,56 @@
+<%include partials/header %>
+
+
+      <% if(data !== null){ %>
+      <div class="container">
+    
+          <nav class="navbar navbar-default ">
+              <a class="navbar-brand" href="/">Movie Search</a>
+              <p id="author" class="navbar-text navbar-right">Made by Michał Bruder</p>
+          <form action = "/" method="GET" class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Search" name="search">
+            </div>
+                <button type="submit" class="btn btn-default">Search</button>
+          </form>
+          </nav>
+      
+          <div class="movies" >
+          <% data.forEach(function(movie){ %>
+                  <div class="media">
+                    <div class="media-left">
+                        <img class="media-object" src=<%= movie["Poster"] %> >
+                    </div>
+                    <div class="media-body">
+                      <h4 class="media-heading"><%=movie["Title"]%></h4>
+                      <%=movie["Year"]%>
+                      <p><%=movie["Plot"]%></p>
+                      
+                      <% if(movie["Website"]!=="N/A"){ %>
+                        <a class="btn btn-default" href=<%=movie["Website"]%> role="button">Website</a>
+                      <% } %>
+                      
+                    </div>
+                  </div>
+          <% }) %>
+    </div>
+    
+    <% }else{ %>
+         <div id="background" class="container">
+        </nav>
+          <div class="jumbotron">
+            <h1>Movie Search!</h1>
+            <p>Type anything in the search box.</p>
+            <form id="form" action = "/" method="GET" class="navbar-form navbar-left" role="search">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search" name="search">
+          </div>
+              <button type="submit" class="btn btn-default">Search</button>
+        </form>
+          </div>
+      </div>
+    <% } %> 
+    
+</div>
+
+<%include partials/footer %>
