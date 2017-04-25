@@ -1,5 +1,5 @@
 # movieSearch
-Simple movie search app using Express JS and imdbID <br>
+Simple movie search app using Express and imdbAPI <br>
 Shows 10 movies based on a search term <br>
 Displays Movie details
 <br><br>
